@@ -2,9 +2,9 @@ PUT http://localhost:9090/admin/update
 content-type: application/json
 
 {
-     "id": "635804170ccb742d036daaf2",
-    "name": "alborgheti",
-    "age": 65
+     "id": "",
+    "name": "",
+    "age": 
     
 }
 
@@ -14,9 +14,9 @@ POST http://localhost:9090/admin/create
 content-type: application/json
 
 {
-    "name": "pelé",
-    "country": "br",
-    "age": 87
+    "name": "",
+    "country": "",
+    "age": 
 }
 
 ###
@@ -29,6 +29,6 @@ DELETE  http://localhost:9090/admin/delete
 content-type: application/json
 
 {
-    "id": "63599a1bcf69ad700a174c4a"
+    "id": ""
 }
 

@@ -3,11 +3,14 @@ const User = require('../models/User')
 
 readController = async (req,res) => {
    try { 
+       
         const response = await User.find()
-        res.send(response)  
+        res.status(200).json(response)
+        
     }
     catch(error) {
         console.log(error)
+        res.status(404).json({})
     }
 }
 
@@ -19,10 +22,12 @@ postController = async (req,res) => {
             age,
             country
         })
-        res.send(newUser)
+        res.status(201).json(newUser)
 
     } catch(error) {
         console.log(error)
+        res.status(400).json()
+        
     }
 }
 
@@ -33,11 +38,13 @@ updateController = async (req,res) => {
     try {
         const result = await User.findById(id)
         await User.updateOne( result , rest)
-        res.send('Atualizado')
+        res.status(202).json({"accepted":"true"})
    
     } catch(error) {
-        res.send('Não atualizado')
+        res.status('Não atualizado')
         console.log(error)
+        res.status(400).json()
+
     }
     
 }
@@ -45,11 +52,17 @@ updateController = async (req,res) => {
 deleteController =  async (req,res) => {
     try {
         const { id:_id } =  req.body;
-        const response = await User.deleteOne({ _id })
-        res.send(response)
+        
+        const response = await User.deleteOne({_id})
+        console.log(response)
+        if(response.deletedCount == 0){ 
+            return res.status(404).json({"message": "product doesn't exists"})
+        }
+        res.status(200).json(response)
 
     } catch(error){
         console.log(error)
+        res.status(400).json()
     }
 
 } 

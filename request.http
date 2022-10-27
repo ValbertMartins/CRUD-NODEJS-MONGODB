@@ -14,9 +14,9 @@ POST http://localhost:9090/admin/create
 content-type: application/json
 
 {
-    "name": "",
-    "country": "",
-    "age": 
+    "name": "mario",
+    "country": "ola",
+    "age": 22
 }
 
 ###
@@ -29,6 +29,6 @@ DELETE  http://localhost:9090/admin/delete
 content-type: application/json
 
 {
-    "id": ""
-}
+    "id": "63599da534b3a3e759840000"
 
+}
